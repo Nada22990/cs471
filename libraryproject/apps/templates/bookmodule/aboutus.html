@@ -1,22 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-  {% load static %}	<!-- load static -->
-<head>
-  <title>About Us</title>
-  <meta name="keywords" content="Books, recent, Learning, library">
-  <meta name="description" content="Books website">
-  <meta name="author" content="author name">
-  <link rel="icon" href="{% static 'qu-icon.png' %}"> 
-  <link rel="stylesheet" href="{% static 'styles.css' %}"> 
-  <meta charset="UTF-8">
-</head>
+{% extends "layouts/base.html" %}
+ 
+{% load static %}
+{% block title %} About Us {% endblock title %}
+
+{% block content %}
+
 <body>
  
-  <div class="topnav"> 
-    <a class="active" href="{% url "books.index" %}">Home</a> <!-- URL template tag -->
-    <a href="{% url "books.list_books" %}">List Books</a> <!-- URL template tag -->
-    <a href="{% url "books.aboutus" %}">About</a> <!-- URL template tag -->
-  </div>
+  
 
 
  
@@ -25,7 +16,6 @@
  
     <p>To write to  <a href="mailto:email@domain.com">our store</a>, click the link and your default email client will open an email message and address it to us. </p>
 </body>
-</html>
 
-
- 
+{% endblock content %}
+  

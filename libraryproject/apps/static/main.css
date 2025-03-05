@@ -1,0 +1,107 @@
+.container{
+    background-color: white;
+    margin: auto;
+    text-align: center;
+
+}
+
+.section1{
+    background-color: lightgreen;
+    padding: 20px;
+
+}
+
+.section2{
+    background-color: gray;
+    padding: 20px;
+    
+}
+
+.section3{
+    background-color: black;
+    padding: 20px;
+    
+}
+
+a{
+    font-size: 18px;
+}
+
+.section1 a{
+    color: red;
+    
+}
+
+.section2 a{
+    color: yellow;
+    
+}
+
+.section3 a{
+    color: white;
+    
+}
+
+a:visited{
+    color: blue;
+}
+
+.section1 a:hover{
+    color: darkred;
+    text-decoration: underline;
+}
+
+.section2 a:hover{
+    color: orange;
+    text-decoration: underline;
+}
+
+.section3 a:hover{
+    color: lightgray;
+    text-decoration: underline;
+}
+
+h1{
+   background-color: #f5f5dc; 
+   color: green;
+   text-align: left;
+}
+
+h2{
+    background-color: cadetblue;
+    color: white;
+    text-align: left;
+}
+
+.fruit-table{
+    width: 20%;
+    margin: 20px auto;
+    font-size: 1em;
+    font-family: Times New Roman;
+    text-align: center;
+
+}
+
+.fruit-table, .fruit-table th, .fruit-table td{
+    border: 1px solid black;
+}
+
+.camel-table{
+    width: 80%;
+    margin: 20px auto;
+    font-size: 1em;
+    font-family: Times New Roman;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.camel-table .table-image{
+    width: auto;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.camel-table, .camel-table th, .camel-table td{
+    border: 1px solid black;
+}
