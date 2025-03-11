@@ -31,5 +31,12 @@ urlpatterns = [
     path('html5/tables/', views.tables, name="books.tables"),
 
 
+    path('search', views.search),
+
+
+
+    
+
+
     
 ]
