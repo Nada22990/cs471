@@ -32,6 +32,13 @@ urlpatterns = [
 
 
     path('search', views.search),
+    path('simple/query', views.simple_query),
+    path('complex/query', views.complex_query),
+
+
+    
+
+    
 
 
 

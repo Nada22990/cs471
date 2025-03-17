@@ -40,18 +40,12 @@
 {% endblock stylesheets %}
 
 {% block content %}
-<table>
-    <tr>
-         <th>ID</th>
-         <th>Title</th>
-         <th>Author</th>
-    </tr>
-{% for book in books %}
-    <tr>
-        <td>{{book.id}}</td>
-        <td>{{book.title}}</td>
-        <td>{{book.author}}</td>
-    </tr>
+
+ {% for obj in books %}
+    
+    ID: {{obj.id}}, Title: {{obj.title}}
+    
+    <hr>
 {% endfor %}
-</table>
+
 {% endblock content %}
