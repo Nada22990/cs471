@@ -1,0 +1,22 @@
+-- database: ./db.sqlite3
+
+
+INSERT INTO bookmodule_student (name, age, address_id) VALUES ('Aisha', 21, 1);
+INSERT INTO bookmodule_student (name, age, address_id) VALUES ('Fahad', 23, 1);
+INSERT INTO bookmodule_student (name, age, address_id) VALUES ('Sara', 20, 1);
+
+INSERT INTO bookmodule_student (name, age, address_id) VALUES ('Mona', 22, 2);
+INSERT INTO bookmodule_student (name, age, address_id) VALUES ('Yousef', 24, 2);
+INSERT INTO bookmodule_student (name, age, address_id) VALUES ('Lama', 23, 2);
+
+INSERT INTO bookmodule_student (name, age, address_id) VALUES ('Khalid', 21, 3);
+INSERT INTO bookmodule_student (name, age, address_id) VALUES ('Noor', 22, 3);
+INSERT INTO bookmodule_student (name, age, address_id) VALUES ('Hassan', 20, 3);
+INSERT INTO bookmodule_student (name, age, address_id) VALUES ('Layla', 19, 3);
+
+INSERT INTO bookmodule_student (name, age, address_id) VALUES ('Salem', 25, 4);
+INSERT INTO bookmodule_student (name, age, address_id) VALUES ('Nada', 22, 4);
+
+INSERT INTO bookmodule_student (name, age, address_id) VALUES ('Reem', 23, 5);
+INSERT INTO bookmodule_student (name, age, address_id) VALUES ('Majid', 20, 5);
+INSERT INTO bookmodule_student (name, age, address_id) VALUES ('Amal', 21, 5);

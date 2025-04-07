@@ -1,0 +1,8 @@
+-- database: ./db.sqlite3
+
+
+INSERT INTO bookmodule_address (city) VALUES ('Buraidah');
+INSERT INTO bookmodule_address (city) VALUES ('Unaizah');
+INSERT INTO bookmodule_address (city) VALUES ('Riyadh');
+INSERT INTO bookmodule_address (city) VALUES ('Jeddah');
+INSERT INTO bookmodule_address (city) VALUES ('Dammam');

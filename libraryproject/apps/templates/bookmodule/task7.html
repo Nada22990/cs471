@@ -1,0 +1,57 @@
+{% extends "layouts/base.html" %}
+
+{% load static %}
+
+{% block title %} Task7 page {% endblock title %}
+
+{% block stylesheets %}
+<style>
+    table {
+        width: 20%;
+        margin: 20px auto;
+        font-size: 1em;
+        font-family: Times New Roman;
+        text-align: center;
+        border-collapse: collapse;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+    }
+
+    th {
+        background-color: rgb(119, 23, 143);
+        padding: 10px;
+        font-weight: bold;
+
+    }
+
+    td {
+        padding: 8px;
+    }
+
+    caption {
+        font-size: 1.2em;
+        margin: 10px;
+        text-align: center;
+        font-weight: bold;
+    }
+</style>
+{% endblock stylesheets %}
+
+{% block content %}
+
+<table>
+    <tr>
+        <th>City</th>
+        <th>Number of student</th>
+    </tr>
+    {% for city in cities %}
+    <tr>
+        <td>{{city.city}}</td>
+        <td>{{city.student_count}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock content %}

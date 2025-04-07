@@ -1,8 +1,8 @@
-{% extends "Layouts/base.html" %}
+{% extends "layouts/base.html" %}
 
 {% load static %}
 
-{% block title %} BookList Page {% endblock title %}
+{% block title %} BookList page {% endblock title %}
 
 {% block stylesheets %}
     <style>
@@ -40,12 +40,23 @@
 {% endblock stylesheets %}
 
 {% block content %}
-
- {% for obj in books %}
-    
-    ID: {{obj.id}}, Title: {{obj.title}} , Author: {{obj.author}}, Price: {{obj.price}}, Edition: {{obj.edition}}
-    
-    <hr>
-{% endfor %}
+<h1>Task 5</h1>
+<table>
+    <tr>
+        <th>Count of all books</th>
+        <th>Total price of all books</th>
+        <th>avarege price</th>
+        <th>Min price</th>
+        <th>Max price</th>
+    </tr>
+    <tr>
+        <td>{{query.count}}</td>
+        <td>{{query.total_price}}</td>
+        <td>{{query.average_price}}</td>
+        <td>{{query.min_price}}</td>
+        <td>{{query.max_price}}</td>
+    </tr>
+</table>
+<hr>
 
 {% endblock content %}
