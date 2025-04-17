@@ -1,3 +1,10 @@
 -- database: ./db.sqlite3
 
-SELECT * FROM bookmodule_address;
+SELECT * FROM bookmodule_card;
+
+INSERT INTO bookmodule_card (id, card_number) VALUES
+(1, 1001),
+(2, 1002),
+(3, 1003),
+(4, 1004),
+(5, 1005);
