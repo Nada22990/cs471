@@ -18,6 +18,8 @@ from django.contrib import admin
 from django.urls import path
 from . import views
 
+
+
 urlpatterns = [
     
     path('', views.index, name= "books.index"),
@@ -55,19 +57,32 @@ urlpatterns = [
     path('lab9_part2/deletbook2/<int:id>', views.deletbook2, name="delet_book2"),
 
     
-    
-    
-   
+    path('simple/query1', views.simp),
+    path('complex/query1', views.comp),
+
+##############################################################Task1
+
+    path('students/list/', views.list_students, name="list_students"),
+    path('students/add/', views.addstudent, name="add_student"),
+    path('students/edit/<int:id>/', views.editstudent, name="edit_student"),
+    path('students/delete/<int:id>/', views.deletestudent, name="delete_student"),
 
 
-    
+##############################################################Task2
 
-    
+    path('students/list2/', views.list_students2, name="list_students2"),
+    path('students/add2/', views.addstudent2, name="add_student2"),
+    path('students/edit2/<int:id>/', views.editstudent2, name="edit_student2"),
+    path('students/delete2/<int:id>/', views.deletestudent2, name="delete_student2"),
 
-
-
-    
-
+ ###########################################################################################Task3
+ 
+    path('profiles/list', views.list_profiles, name='list_profiles'),
+    path('profiles/add/', views.add_profile, name='add_profile'),
+    path('profiles/edit/<int:id>/', views.edit_profile, name='edit_profile'),
+    path('profiles/delete/<int:id>/', views.delete_profile, name='delete_profile'),
 
     
 ]
+
+

@@ -1,5 +1,5 @@
 from django.shortcuts import render ,redirect,get_object_or_404
-from .models import Book,Address,Student,Card11,Department11,Course11,Students11
+from .models import Book,Address,Student,Card11,Department11,Course11,Students11,Book3,Student33,Profile2
 
 from django.db.models import Q
 
@@ -8,7 +8,8 @@ from django.http import HttpResponse
 
 from django.db.models import Count, Min, Max, Sum, Avg
 
-from .forms import BookForm
+         
+from .forms import BookForm,StudentForm,StudentForm2,ProfileForm
 
 def index(request): 
     name = request.GET.get("name") or "world!"
@@ -240,3 +241,118 @@ def deletbook2(request,id):
     book.delete()
     return redirect('list_books2')
 
+def simp(request):
+    book=Book3.objects.filter(title__icontains='and')
+    return render(request, 'bookmodule/book3.html', {'books':book})
+
+def comp(request):
+    book=Book3.objects.filter(author__isnull=False).filter(title__icontains='and').filter(edition__gte=2).exclude(price__lte=100)[:10]
+    if len(book)>=1:
+        return render(request, 'bookmodule/book3.html', {'books':book})
+    else:
+        return render(request, 'bookmodule/index.html')
+    
+#######################################################################################Task1
+
+def list_students(request):
+    students = Student.objects.all()
+    return render(request, 'bookmodule/list_students.html', {'students':students})
+
+def addstudent(request):
+    if request.method =="POST":
+        form = StudentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('list_students')
+    else:
+        form = StudentForm()
+    return render(request, 'bookmodule/addstudent.html', {'form':form})
+
+
+def editstudent(request, id):
+    student = get_object_or_404(Student, id=id)
+    if request.method == "POST":
+        form = StudentForm(request.POST, instance = student)
+        if form.is_valid():
+            form.save()
+            return redirect('list_students')
+    else:
+        form = StudentForm(instance = student)
+    return render(request, 'bookmodule/editstudent.html', {'form':form})
+
+
+def deletestudent(request, id):
+    Students = get_object_or_404(Student, id=id)
+    Students.delete()
+    return redirect('list_students')
+
+
+
+##########################################################Task2
+
+def list_students2(request):
+    students = Student33.objects.all()
+    return render(request, 'bookmodule/list_students2.html', {'students':students})
+
+def addstudent2(request):
+    if request.method =="POST":
+        form = StudentForm2(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('list_students2')
+    else:
+        form = StudentForm2()
+    return render(request, 'bookmodule/addstudent2.html', {'form':form})
+
+
+def editstudent2(request, id):
+    student = get_object_or_404(Student33, id=id)
+    if request.method == "POST":
+        form = StudentForm2(request.POST, instance = student)
+        if form.is_valid():
+            form.save()
+            return redirect('list_students2')
+    else:
+        form = StudentForm2(instance = student)
+    return render(request, 'bookmodule/editstudent2.html', {'form':form})
+
+
+def deletestudent2(request, id):
+    students = get_object_or_404(Student33, id=id)
+    students.delete()
+    return redirect('list_students2')
+
+
+########################################  Task 3
+
+def list_profiles(request):
+    profiles = Profile2.objects.all()
+    return render(request, 'bookmodule/list_profiles.html', {'profiles': profiles})
+
+
+def add_profile(request):
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('list_profiles')  
+    else:
+        form = ProfileForm()
+    return render(request, 'bookmodule/add_profile.html', {'form': form})
+
+
+def edit_profile(request, id):
+    profile = get_object_or_404(Profile2, id=id)
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, request.FILES, instance=profile)
+        if form.is_valid():
+            form.save()
+            return redirect('list_profiles')
+    else:
+        form = ProfileForm(instance=profile)
+    return render(request, 'bookmodule/edit_profile.html', {'form': form})
+
+def delete_profile(request, id):
+    profile = get_object_or_404(Profile2, id=id)
+    profile.delete()
+    return redirect('list_profiles')
