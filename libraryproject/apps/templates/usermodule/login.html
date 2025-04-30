@@ -1,7 +1,7 @@
 {% extends "layouts/base.html" %} 
 {% load static %} 
 
-{% block title %} Add Page {% endblock title %} 
+{% block title %} Login {% endblock title %} 
 
 {% block stylesheets %}
 
@@ -30,7 +30,7 @@
     }
 
     th {
-        background-color: pink;
+        background-color: rgb(177, 29, 157);
         padding: 10px;
         font-weight: bold;
     }
@@ -49,23 +49,14 @@
 {% endblock stylesheets %}
 
 {% block content %}
-
-{% if messages %}
-    <ul>
-        {% for message in messages %}
-            <li>{{ message }}</li>
-        {% endfor %}
-    </ul>
-{% endif %}
-
-<form method="POST" enctype="multipart/form-data">
+<form method="POST">
     {% csrf_token %}
-
-    {{form.as_p }}
-
-
-    <button type="submit">Add</button>
-
+    {{ form.as_p }}
+    <button type="submit">Login</button>
 </form>
+<a href="{% url 'register' %}">Don't have an account? Register</a>
+
+
+
 
 {% endblock content %}

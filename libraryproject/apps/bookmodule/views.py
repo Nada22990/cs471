@@ -11,6 +11,8 @@ from django.db.models import Count, Min, Max, Sum, Avg
          
 from .forms import BookForm,StudentForm,StudentForm2,ProfileForm
 
+from django.contrib.auth.decorators import login_required
+
 def index(request): 
     name = request.GET.get("name") or "world!"
     return render(request, "bookmodule/index.html" , {"name": name})    #Change HttpResponse  to render function
@@ -258,6 +260,7 @@ def list_students(request):
     students = Student.objects.all()
     return render(request, 'bookmodule/list_students.html', {'students':students})
 
+@login_required
 def addstudent(request):
     if request.method =="POST":
         form = StudentForm(request.POST)
@@ -268,7 +271,7 @@ def addstudent(request):
         form = StudentForm()
     return render(request, 'bookmodule/addstudent.html', {'form':form})
 
-
+@login_required
 def editstudent(request, id):
     student = get_object_or_404(Student, id=id)
     if request.method == "POST":
@@ -280,7 +283,7 @@ def editstudent(request, id):
         form = StudentForm(instance = student)
     return render(request, 'bookmodule/editstudent.html', {'form':form})
 
-
+@login_required
 def deletestudent(request, id):
     Students = get_object_or_404(Student, id=id)
     Students.delete()
@@ -290,10 +293,12 @@ def deletestudent(request, id):
 
 ##########################################################Task2
 
+
 def list_students2(request):
     students = Student33.objects.all()
     return render(request, 'bookmodule/list_students2.html', {'students':students})
 
+@login_required
 def addstudent2(request):
     if request.method =="POST":
         form = StudentForm2(request.POST)
@@ -304,7 +309,7 @@ def addstudent2(request):
         form = StudentForm2()
     return render(request, 'bookmodule/addstudent2.html', {'form':form})
 
-
+@login_required
 def editstudent2(request, id):
     student = get_object_or_404(Student33, id=id)
     if request.method == "POST":
@@ -316,7 +321,7 @@ def editstudent2(request, id):
         form = StudentForm2(instance = student)
     return render(request, 'bookmodule/editstudent2.html', {'form':form})
 
-
+@login_required
 def deletestudent2(request, id):
     students = get_object_or_404(Student33, id=id)
     students.delete()
@@ -330,6 +335,7 @@ def list_profiles(request):
     return render(request, 'bookmodule/list_profiles.html', {'profiles': profiles})
 
 
+@login_required
 def add_profile(request):
     if request.method == 'POST':
         form = ProfileForm(request.POST, request.FILES)
@@ -341,6 +347,7 @@ def add_profile(request):
     return render(request, 'bookmodule/add_profile.html', {'form': form})
 
 
+@login_required
 def edit_profile(request, id):
     profile = get_object_or_404(Profile2, id=id)
     if request.method == 'POST':
@@ -352,6 +359,7 @@ def edit_profile(request, id):
         form = ProfileForm(instance=profile)
     return render(request, 'bookmodule/edit_profile.html', {'form': form})
 
+@login_required
 def delete_profile(request, id):
     profile = get_object_or_404(Profile2, id=id)
     profile.delete()

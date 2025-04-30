@@ -83,6 +83,8 @@ urlpatterns = [
     path('profiles/delete/<int:id>/', views.delete_profile, name='delete_profile'),
 
     
+
+    
 ]
 
 
